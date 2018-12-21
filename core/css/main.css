@@ -1,0 +1,30 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+html,
+body {
+  height: 100%;
+}
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.container1 {
+  flex: 1 0 auto;
+}
+.form_block {
+  display: flex;
+  flex: 0 0 auto;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  text-align: center;
+  background-color: #FFEA82;
+  margin-bottom: 25px;
+}
+.form_block .comment {
+  color: #4652FF;
+  font-size: 25px;
+}
