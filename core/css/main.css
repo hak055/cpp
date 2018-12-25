@@ -12,8 +12,19 @@ body {
   height: 100%;
 }
 .container1 {
-  flex: 1 0 auto;
+      display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1 0 auto;
+
+ 
 }
+
+.page_number{
+  text-align: center;
+  padding-bottom: 20px;
+}  
+
 .form_block {
   display: flex;
   flex: 0 0 auto;
@@ -26,5 +37,6 @@ body {
 }
 .form_block .comment {
   color: #4652FF;
-  font-size: 25px;
+  font-size: 22px;
+  
 }

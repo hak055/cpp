@@ -6,18 +6,15 @@ error_reporting(-1);
 require_once 'core/bootstrap.php';
 //require_once 'view.php';
 
+    $listComment = new Comment;
+    $listComment->getComment();
+    $messages = $listComment->getComment();
+
+
 if(!empty($_POST)){
     save_mess();
-    $save_comment = "Ваше комментарие успешно добавлено";
 
-    
-
-   
-    
-    $messages = get_mess();
-
-    //print_arr($messages);
-    
+  
 }
 ?>
 <!doctype html>
@@ -35,26 +32,34 @@ if(!empty($_POST)){
 
 <div class="wrapper">
 
-    <div class="card">
-        <?php foreach ($messages as $message) :?>
-          <div class="card-header">
-            <?=$message['name'];?>
-          </div>
-          <div class="card-body">            
-            <p class="card-text"><?=$message['text'];?></p>      
-          </div>
-        <?php endforeach;?>
-    </div>
+    
 
     <div class="container1">
 
-       
-        
+	       <div class="getComment">
+
+                <?php if(!empty($messages)) :?>
+                    <?php foreach ($messages as $message) :?>
+                       <div class="card-header">
+                           <?=$message['name'];?>
+                           <p class="card-text"><?=$message['msg'];?></p>
+                        </div>                  
+                    <?php endforeach;?>
+                <?php endif; ?>		        
+	       </div>
+		   <div class="page_number">
+		         <?php 
+
+                   $numberPage = new Comment;
+                   $numberPage->countPage();
+
+                  ?>
+		   </div>       
     </div>
 
         <div class="form_block">
             <p class="comment">Оставить комментарий</p><br>
-            <p style="color: grey"><?= $save_comment?></p>
+            
             <form action="index.php" method="post">
                 <p>Имя:</p>
                 <p><input name="name" required placeholder="Ваше имя"></p>
